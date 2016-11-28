@@ -100,6 +100,7 @@ exports.default = {
       tableData: null,
       dialogVisible: false,
       show: true,
+      ajaxUrlPrefix: 'http://45.32.23.243:8082',
     };
   },
   created() {
@@ -109,17 +110,20 @@ exports.default = {
     console.info('ready');
   },
   mounted() {
-    // setTimeout(() => {
-    //   let input = this.$el.querySelector('input');
-    //   input.dispatchEvent(new Event('focus'));
-    // }, 1000);
+    this.$http.get(`${this.ajaxUrlPrefix}/newvisitor`).then((response) => {
+      this.$notify.info({
+        title: 'Welcome',
+        message: `你是今天第 ${response.body} 位访客`,
+        duration: 4000
+      });
+    });
   },
   methods: {
     update() {
       let date = this.localeDate(this.date);
       //begin loading
       let loadingInstance = this.$loading(this.loadingOptions);
-      this.$http.get(`http://45.32.23.243:8082/commits/${date}`).then((response) => {
+      this.$http.get(`${this.ajaxUrlPrefix}/commits/${date}`).then((response) => {
         //clear topics
         this.tableData = null;
 
@@ -138,7 +142,7 @@ exports.default = {
       //begin loading
       let loadingInstance = this.$loading(this.loadingOptions);
       let date = this.localeDate(this.date);
-      this.$http.get(`http://45.32.23.243:8082/commits/${date}/${sha}`).then((response) => {
+      this.$http.get(`${this.ajaxUrlPrefix}/commits/${date}/${sha}`).then((response) => {
         //end loading
         loadingInstance.close();
 
