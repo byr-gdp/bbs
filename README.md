@@ -17,6 +17,11 @@ npm run build
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
+## Deploy
+
+- VPS 上执行 npm run build/dev 报错。
+- 调用接口 URL 如何更优雅，node-proxy。
+
 ## Done
 
 ### basic
@@ -25,6 +30,7 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 - 当日某版本十大主题列表 √
 - 跳转到原帖 √
 - bbs 主站图片增加前缀 http://bbs.byr.cn √
+- 默认 datepicker 展开 √
 
 ### filter
 
@@ -39,9 +45,6 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 
 ### Primary
 
-- 根据当前 UI 确定如何回到之前选择（如日期选择，时间选择） √
-- 默认 datepicker 展开 √
-- loading? √
 - 大文字显示
 
 ### Other
