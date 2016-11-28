@@ -100,7 +100,7 @@ exports.default = {
       tableData: null,
       dialogVisible: false,
       show: true,
-      ajaxUrlPrefix: 'http://45.32.23.243:8082',
+      ajaxUrlPrefix: 'http://api.52byr.com',
     };
   },
   created() {
