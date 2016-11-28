@@ -19,9 +19,6 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 
 ## Deploy
 
-- VPS 上执行 npm run build/dev 报错。
-- 调用接口 URL 如何更优雅，node-proxy。
-
 ## Done
 
 ### basic
@@ -45,7 +42,8 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 
 ### Primary
 
-- 大文字显示
+- VPS 上执行 npm run build/dev 报错。
+- 调用接口 URL 如何更优雅，node-proxy。
 
 ### Other
 

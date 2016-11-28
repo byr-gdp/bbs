@@ -63,16 +63,14 @@
             </transition>
         </div>
         <!-- topic detail dialog -->
-        <!-- <div class="topic-detail-dialog"> -->
-          <el-dialog :title="currentTopicTitle" v-model="dialogVisible"
-            size="small" :modal="true" :lock-scroll="true" :show-close="false" top="12%" @close="closeCurrentTopic">
-            <span v-html="currentTopicHtml"></span>
-            <span slot="footer" class="dialog-footer">
-              <el-button type="primary" @click.native="goTo">原帖</el-button>
-              <el-button @click.native="dialogVisible=false">关闭</el-button>
-            </span>
-          </el-dialog>
-        <!-- </div> -->
+        <el-dialog :title="currentTopicTitle" v-model="dialogVisible"
+          size="small" :modal="true" :lock-scroll="true" :show-close="false" top="12%" @close="closeCurrentTopic">
+          <span v-html="currentTopicHtml"></span>
+          <span slot="footer" class="dialog-footer">
+            <el-button type="primary" @click.native="goTo">原帖</el-button>
+            <el-button @click.native="dialogVisible=false">关闭</el-button>
+          </span>
+        </el-dialog>
       </el-col>
   </el-row>
 </template>
@@ -92,12 +90,7 @@ exports.default = {
       currentTopicLink: null,
       currentStep: 0,
       pickerOptions: {
-        // shortcuts: [{
-        //   text: '今天',
-        //   onClick(picker) {
-        //     picker.$emit('pick', new Date());
-        //   }
-        // }]
+
       },
       loadingOptions: {
         target: '.main',
@@ -155,7 +148,6 @@ exports.default = {
       });
     },
     goTo() {
-      // window.location.href = this.currentTopicLink;
       this.dialogVisible = false;
       setTimeout(() => {
         window.open(this.currentTopicLink, '_blank');
@@ -255,7 +247,6 @@ exports.default = {
   color: #2c3e50;
   width: 100%;
   height: 100%;
-  /*padding-top: 60px;*/
 }
 
 html, body{
