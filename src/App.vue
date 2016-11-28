@@ -126,7 +126,7 @@ exports.default = {
       let date = this.localeDate(this.date);
       //begin loading
       let loadingInstance = this.$loading(this.loadingOptions);
-      this.$http.get(`http://127.0.0.1:8082/commits/${date}`).then((response) => {
+      this.$http.get(`http://45.32.23.243:8082/commits/${date}`).then((response) => {
         //clear topics
         this.tableData = null;
 
@@ -145,7 +145,7 @@ exports.default = {
       //begin loading
       let loadingInstance = this.$loading(this.loadingOptions);
       let date = this.localeDate(this.date);
-      this.$http.get(`http://127.0.0.1:8082/commits/${date}/${sha}`).then((response) => {
+      this.$http.get(`http://45.32.23.243:8082/commits/${date}/${sha}`).then((response) => {
         //end loading
         loadingInstance.close();
 
@@ -320,6 +320,10 @@ html, body{
   /*margin-top: 0;*/
 }
 
+.datepicker input{
+  cursor: pointer;
+}
+
 .datepicker-enter{
   opacity: 0;
   margin-top: 100px;
@@ -437,6 +441,10 @@ html, body{
 .el-dialog__header,
 .el-dialog__body{
   text-align: left;
+}
+
+.el-table .is-center{
+  cursor: pointer;
 }
 /*element ui end*/
 
