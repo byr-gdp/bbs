@@ -4,7 +4,8 @@
     <el-row>
       <!-- nav -->
       <el-col :span="3" class="nav-vertical">
-        <h1 class="primary-title">Hot Review</h1>
+        <h1 class="primary-title">BBS.BYR.CN</h1>
+        <h2 class="vice-title">十大热帖回顾</h2>
         <el-steps :space="200" direction="vertical" :active="currentStep" class="steps" finish-status="success">
           <el-step title="选择日期" @click.native="handleStepChange(0)"></el-step>
           <el-step title="选择时间" @click.native="handleStepChange(1)"></el-step>
@@ -35,7 +36,7 @@
                   <el-table
                     :data="processedCommitList" show-overflow-tooltip highlight-current-row
                     @row-click="handleCommitChange" stripe border>
-                    <el-table-column type="index" width="40" align="center"></el-table-column>
+                    <el-table-column type="index" width="50" align="center"></el-table-column>
                     <el-table-column property="commit.message" label="更新时间"
                     :formatter="beaMsg" align="center"></el-table-column>
                   </el-table>
@@ -90,7 +91,11 @@ exports.default = {
       currentTopicLink: null,
       currentStep: 0,
       pickerOptions: {
-
+        disabledDate(time) {
+          console.log(time);
+          // return time.getTime() < Date.now() - 8.64e7;
+          return time.getTime() < new Date('2016-11-01').getTime();
+        }
       },
       loadingOptions: {
         target: '.main',
@@ -113,8 +118,8 @@ exports.default = {
     this.$http.get(`${this.ajaxUrlPrefix}/newvisitor`).then((response) => {
       this.$notify.info({
         title: 'Welcome',
-        message: `你是今天第 ${response.body} 位访客`,
-        duration: 4000
+        message: `今天第 ${response.body} 位访客`,
+        duration: 3000
       });
     });
   },
@@ -281,7 +286,12 @@ html, body{
 
 .el-row .primary-title{
   font-size: 20px;
-  color: #fff;
+  color: #FFFFFF;
+}
+
+.el-row .vice-title{
+  font-size: 16px;
+  color: #FFFFFF;
 }
 
 .el-row .steps{
@@ -401,6 +411,10 @@ html, body{
   /*width: 250px;*/
   width: 80%;
   margin: 0 auto 0;
+}
+
+.markdown{
+  white-space: normal;
 }
 
 /*element ui begin*/

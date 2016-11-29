@@ -42,11 +42,11 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 
 ### Primary
 
+- 反馈
+- 移动端（响应式 | 输出两套）
 - VPS 上执行 npm run build/dev 报错。
-- 调用接口 URL 如何更优雅，node-proxy。
 
 ### Other
 
 - graph：展示当天十大变动次数
-- 反馈
 - 所有统计信息，参考快站主页，统计天数，每天统计数等等
