@@ -92,9 +92,8 @@ exports.default = {
       currentStep: 0,
       pickerOptions: {
         disabledDate(time) {
-          console.log(time);
-          // return time.getTime() < Date.now() - 8.64e7;
-          return time.getTime() < new Date('2016-11-01').getTime();
+          return time.getTime() < new Date('2016-11-01').getTime() ||
+                 time.getTime() > new Date();
         }
       },
       loadingOptions: {
