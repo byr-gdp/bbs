@@ -45,23 +45,38 @@
             </template>
           </transition>
         </div>
+        <!-- topic-picker -->
         <div class="topicpicker">
-            <transition name="topicpicker" appear>
-              <template>
-                <div class="grid-content bg-purple-light" v-if="currentStep>=2">
-                  <div class="topic-list">
-                    <el-table :data="tableData" show-overflow-tooltip border style="width: 100%" @row-click="showTopicDetail">
-                      <el-table-column prop="title" label="Title" align="center"></el-table-column>
-                      <el-table-column prop="author" label="Author" width="150" align="center"></el-table-column>
-                      <el-table-column prop="pubDate" label="Pub Date" width="200" align="center"
-                                       :formatter="beaDate">
-                      </el-table-column>
-                      <!-- <el-table-column prop="link" label="Link" align="center"></el-table-column> -->
-                    </el-table>
-                  </div>
+          <transition name="topicpicker" appear>
+            <template>
+              <div class="grid-content bg-purple-light" v-if="currentStep>=2">
+                <div class="topic-list">
+                  <el-table :data="tableData" show-overflow-tooltip border style="width: 100%" @row-click="showTopicDetail">
+                    <el-table-column prop="title" label="Title" align="center"></el-table-column>
+                    <el-table-column prop="author" label="Author" width="150" align="center"></el-table-column>
+                    <el-table-column prop="pubDate" label="Pub Date" width="200" align="center"
+                                     :formatter="beaDate">
+                    </el-table-column>
+                    <!-- <el-table-column prop="link" label="Link" align="center"></el-table-column> -->
+                  </el-table>
                 </div>
-              </template>
-            </transition>
+              </div>
+            </template>
+          </transition>
+        </div>
+        <!-- topic-picker-mobile -->
+        <div class="topicpicker-mobile" style="display: none;">
+          <transition name="topicpicker" appear>
+            <template>
+              <div class="grid-content bg-purple-light" v-if="currentStep>=2">
+                <div class="topic-list">
+                  <el-table :data="tableData" show-overflow-tooltip border style="width: 100%" @row-click="showTopicDetail">
+                    <el-table-column prop="title" label="Title" align="center"></el-table-column>
+                  </el-table>
+                </div>
+              </div>
+            </template>
+          </transition>
         </div>
         <!-- topic detail dialog -->
         <el-dialog :title="currentTopicTitle" v-model="dialogVisible"
@@ -268,6 +283,48 @@ html, body{
   width: 100%;
   height: 100%;
 }
+
+/*mobile begin*/
+@media screen and (max-width: 800px){
+  .el-row .nav-vertical{
+    min-width: 100px;
+  }
+
+  .el-row .nav-vertical .primary-title,
+  .el-row .nav-vertical .vice-title{
+    font-size: 14px;
+  }
+
+  .el-row .main{
+    max-width: calc(100% - 100px);
+    position: relative;
+  }
+
+  .commit-list,
+  .topic-list{
+    width: 96%;
+    margin: 0 auto 0;
+  }
+
+  .topicpicker-mobile{
+    display: block !important;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 100%;
+    z-index: 999;
+    margin-top: 0;
+  }
+
+  .topicpicker{
+    display: none;
+  }
+
+  .el-dialog--small{
+    width: 80%;
+  }
+}
+/*mobile end*/
 
 .el-row .nav-vertical{
   height: 100%;
